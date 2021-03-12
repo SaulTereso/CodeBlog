@@ -14,6 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/* Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+}); */
+
+//Routes category
+Route::apiResource('categories','\App\Http\Controllers\CategoryController');
+
+//post
+Route::apiResource('posts','\App\Http\Controllers\ControllerPost');
+//Route::get('post/{id}','\App\Http\Controllers\PostController@individual');
+//Route::get('post','\App\Http\Controllers\PostController@index');
+//Route::get('pdededeost','\App\Http\Controllers\PostController@index');
+Route::get('postCategory/{id}','\App\Http\Controllers\PostController@categoryPost');
+Route::get('postCategory','\App\Http\Controllers\PostController@categoryPosthome');
+ 

@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Posts;
+ 
 use Illuminate\Http\Request;
-
-class PostsController extends Controller
+use App\Models\Post;
+class ControllerPost extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +14,9 @@ class PostsController extends Controller
     public function index()
     {
         //
+            $post = Post::all();
+            //dd($post);
+            return response()->json(['posts'=> $post]);
     }
 
     /**
@@ -41,21 +43,23 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Posts  $posts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Posts $posts)
+    public function show($id)
     {
         //
+        $post = Post::findOrfail($id);
+        return response()->json(['post' => $post]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Posts  $posts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Posts $posts)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +68,10 @@ class PostsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Posts  $posts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Posts $posts)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +79,10 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Posts  $posts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Posts $posts)
+    public function destroy($id)
     {
         //
     }

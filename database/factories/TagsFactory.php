@@ -2,7 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Tags;
+//use App\Models\Model;
+use App\Models\tags;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TagsFactory extends Factory
@@ -22,7 +23,8 @@ class TagsFactory extends Factory
     public function definition()
     {
         return [
-            'name'=>$this->faker->word
+            //
+            'name' => $this->faker->word
         ];
     }
 }
